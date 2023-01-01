@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.GithubRepositories" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/matte_black</item>
+        <item name="colorPrimaryVariant">@color/black</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -12,5 +12,107 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.App.SplashLauncher" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/github_icon</item>
+        <item name="postSplashScreenTheme">@style/Theme.GithubRepositories</item>
+    </style>
+
+
+    <style name="ExtraLargeBoldWhiteTextStyle">
+        <item name="android:fontFamily">@font/aller_bd</item>
+        <item name="android:textSize">@dimen/_35sdp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="LargeBoldWhiteTextStyle">
+        <item name="android:fontFamily">@font/aller_bd</item>
+        <item name="android:textSize">@dimen/_20sdp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="LargeBoldBlackTextStyle">
+        <item name="android:fontFamily">@font/aller_bd</item>
+        <item name="android:textSize">@dimen/_20sdp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="MediumBoldBlackTextStyle">
+        <item name="android:fontFamily">@font/aller_bd</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="MediumBoldWhiteTextStyle">
+        <item name="android:fontFamily">@font/aller_bd</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="MediumNormalBlackTextStyle">
+        <item name="android:fontFamily">@font/aller_rg</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="MediumNormalWhiteTextStyle">
+        <item name="android:fontFamily">@font/aller_rg</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="MediumNormalGreyTextStyle">
+        <item name="android:fontFamily">@font/aller_rg</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+        <item name="android:textColor">@color/grey</item>
+    </style>
+
+    <style name="SmallBoldWhiteTextStyle">
+        <item name="fontFamily">@font/aller_bd</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="SmallBoldBlackTextStyle">
+        <item name="android:fontFamily">@font/aller_bd</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="SmallNormalBlackTextStyle">
+        <item name="android:fontFamily">@font/aller_rg</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="SmallNormalWhiteTextStyle">
+        <item name="android:fontFamily">@font/aller_rg</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="SmallNormalGreyTextStyle">
+        <item name="android:fontFamily">@font/aller_rg</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="android:textColor">@color/grey</item>
+    </style>
+
+    <style name="ExtraSmallNormalWhiteTextStyle">
+        <item name="android:fontFamily">@font/aller_rg</item>
+        <item name="android:textSize">@dimen/_8sdp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="ExtraSmallNormalBlackTextStyle">
+        <item name="android:fontFamily">@font/aller_rg</item>
+        <item name="android:textSize">@dimen/_8sdp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.circleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
     </style>
 </resources>

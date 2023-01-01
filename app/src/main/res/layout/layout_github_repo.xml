@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.bs23.githubrepositories.api.Result" />
+
+        <variable
+            name="item"
+            type="com.bs23.githubrepositories.model.Items" />
+
+        <variable
+            name="viewModel"
+            type="com.bs23.githubrepositories.view.fragment.home.HomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_4sdp"
+        android:padding="@dimen/_4sdp"
+        android:background="@drawable/single_repo_background">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/icon_image_view"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@color/white"
+            app:strokeWidth="@dimen/_1sdp"
+            app:strokeColor="@color/white"
+            android:src="@drawable/ic_baseline_image_24"
+            app:loadImage="@{item.owner.avatarUrl}"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.circleImageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/repo_name_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:maxLines="1"
+            android:text="@{item.fullName}"
+            tools:text="Repo Name"
+            style="@style/MediumBoldBlackTextStyle"
+            app:layout_constraintStart_toEndOf="@id/icon_image_view"
+            app:layout_constraintEnd_toStartOf="@id/next_button"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/total_star_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:text="@{String.valueOf(item.stargazersCount)}"
+            tools:text="Total Star"
+            style="@style/SmallNormalBlackTextStyle"
+            app:layout_constraintStart_toEndOf="@id/icon_image_view"
+            app:layout_constraintTop_toBottomOf="@id/repo_name_text_view"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <ImageButton
+            android:id="@+id/next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:background="?android:selectableItemBackground"
+            android:src="@drawable/ic_baseline_navigate_next_24"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

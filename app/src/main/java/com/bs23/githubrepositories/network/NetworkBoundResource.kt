@@ -2,12 +2,8 @@ package com.bs23.githubrepositories.network
 
 import androidx.annotation.MainThread
 import androidx.annotation.WorkerThread
+import com.bs23.githubrepositories.api.*
 import com.bs23.githubrepositories.di.IoDispatcher
-import com.bs23.githubrepositories.api.ApiEmptyResponse
-import com.bs23.githubrepositories.api.ApiErrorResponse
-import com.bs23.githubrepositories.api.ApiResponse
-import com.bs23.githubrepositories.api.ApiSuccessResponse
-import com.bs23.githubrepositories.api.Result
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
@@ -15,7 +11,6 @@ import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.transformLatest
 import kotlinx.coroutines.withContext
-
 
 @ExperimentalCoroutinesApi
 abstract class NetworkBoundResource<ResultType, RequestType>(
@@ -38,15 +33,13 @@ abstract class NetworkBoundResource<ResultType, RequestType>(
                         }
                     }
                 }
-
             } else {
                 emit(Result.success(dbValue))
             }
         }
     }
 
-    protected open fun onFetchFailed() {
-    }
+    protected open fun onFetchFailed() {}
 
     @WorkerThread
     protected open fun processResponse(response: ApiSuccessResponse<RequestType>) = response.body
@@ -58,7 +51,7 @@ abstract class NetworkBoundResource<ResultType, RequestType>(
     protected abstract fun shouldFetch(data: ResultType?): Boolean
 
     @MainThread
-    protected abstract fun loadFromDb(): Flow<ResultType?>
+    protected abstract suspend fun loadFromDb(): Flow<ResultType?>
 
     @MainThread
     protected abstract fun createCall(): Flow<ApiResponse<RequestType>>

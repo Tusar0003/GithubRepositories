@@ -2,7 +2,15 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.fragment.HomeFragment">
+    tools:context=".view.fragment.home.HomeFragment">
+
+    <data>
+        <import type="com.bs23.githubrepositories.api.Result" />
+
+        <variable
+            name="viewModel"
+            type="com.bs23.githubrepositories.view.fragment.home.HomeViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -36,6 +44,71 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_end="@dimen/_16sdp" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/background_image_view"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_90sdp"
+            android:src="@drawable/repo_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/icon_image_view"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@color/white"
+            app:strokeWidth="@dimen/_1sdp"
+            app:strokeColor="@color/white"
+            android:src="@drawable/github_icon"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.circleImageView"
+            app:layout_constraintStart_toStartOf="@id/start_guideline"
+            app:layout_constraintTop_toTopOf="@id/top_guideline" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/total_repo_label_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:text="@string/total_repositories"
+            style="@style/MediumNormalGreyTextStyle"
+            app:layout_constraintStart_toEndOf="@id/icon_image_view"
+            app:layout_constraintTop_toTopOf="@id/top_guideline" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/total_repo_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:text="@{String.valueOf(viewModel.githubRepoResponse.data.totalCount)}"
+            tools:text="284578"
+            style="@style/LargeBoldWhiteTextStyle"
+            app:layout_constraintStart_toEndOf="@id/icon_image_view"
+            app:layout_constraintTop_toBottomOf="@id/total_repo_label_text_view" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:clipToPadding="false"
+            android:nestedScrollingEnabled="false"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:homeViewModel="@{viewModel}"
+            app:githubRepoList="@{viewModel.githubRepoResponse.data.items}"
+            tools:itemCount="5"
+            tools:listitem="@layout/layout_github_repo"
+            app:layout_constraintStart_toStartOf="@id/start_guideline"
+            app:layout_constraintEnd_toEndOf="@id/end_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/background_image_view"
+            app:layout_constraintBottom_toBottomOf="@id/bottom_guideline" />
+
+        <include
+            layout="@layout/loading_state"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:result="@{(Result) viewModel.githubRepoResponse}" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
