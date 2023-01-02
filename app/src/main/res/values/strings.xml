@@ -7,4 +7,7 @@
     <string name="cancel">Cancel</string>
     <string name="total_repositories">Total Repositories</string>
     <string name="please_wait">Please wait</string>
+    <string name="sort_by_date">Sort by Date</string>
+    <string name="sort_by_star">Sort By Star</string>
+    <string name="details">Details</string>
 </resources>

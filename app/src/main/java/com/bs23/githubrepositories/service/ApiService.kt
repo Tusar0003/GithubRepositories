@@ -11,5 +11,7 @@ interface ApiService {
     @GET("search/repositories")
     fun fetchRepositoryList(
         @Query("q") query: String,
+        @Query("page") page: Int,
+        @Query("per_page") perPage: Int,
     ) : Flow<ApiResponse<Repository>>
 }

@@ -1,4 +1,4 @@
-package com.ahoy.weatherapp.utils
+package com.bs23.githubrepositories.utils
 
 import android.content.Context
 import android.content.Intent
@@ -16,6 +16,7 @@ import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
 
 
 inline fun Fragment.launchAndRepeatWithViewLifecycle(
@@ -85,3 +86,14 @@ val Context.layoutInflater: LayoutInflater
 
 val View.layoutInflater: LayoutInflater
     get() = this.context.layoutInflater
+
+fun String.getFormattedDate(): String {
+    return try{
+        val originalDateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+        val date = originalDateFormat.parse(this)
+        val expectedDateFormat = SimpleDateFormat("MM-dd-yyyy HH:ss")
+        expectedDateFormat.format(date)
+    } catch (e : java.lang.Exception){
+        ""
+    }
+}

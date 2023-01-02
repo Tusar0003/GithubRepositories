@@ -8,6 +8,8 @@ data class RepositoryOffline(
     @PrimaryKey
     val fullName: String,
     val repoName: String,
+    val description: String?,
+    val updatedAt: String,
     val totalCount: Int,
     val stargazersCount: Int,
     val avatarUrl: String

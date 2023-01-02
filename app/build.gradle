@@ -119,4 +119,7 @@ dependencies {
 
     // Mock Web Server
     implementation("com.squareup.okhttp3:mockwebserver:4.9.1")
+
+    // Swipe to refresh
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 }

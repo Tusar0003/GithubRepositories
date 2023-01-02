@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.GithubRepositories" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.GithubRepositories" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/matte_black</item>
         <item name="colorPrimaryVariant">@color/black</item>
@@ -20,6 +20,9 @@
         <item name="postSplashScreenTheme">@style/Theme.GithubRepositories</item>
     </style>
 
+    <style name="MyAppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="MyAppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="ExtraLargeBoldWhiteTextStyle">
         <item name="android:fontFamily">@font/aller_bd</item>

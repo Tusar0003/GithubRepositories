@@ -26,6 +26,8 @@ class SaveGithubRepoRepository @Inject constructor(
                     totalCount = repository.totalCount,
                     repoName = it.repoName,
                     fullName = it.fullName,
+                    description = it.description,
+                    updatedAt = it.updatedAt,
                     stargazersCount = it.stargazersCount,
                     avatarUrl = it.owner.avatarUrl,
                 )

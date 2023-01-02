@@ -5,7 +5,7 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.ahoy.weatherapp.utils.layoutInflater
+import com.bs23.githubrepositories.utils.layoutInflater
 import com.bs23.githubrepositories.databinding.LayoutGithubRepoBinding
 import com.bs23.githubrepositories.model.Items
 import com.bs23.githubrepositories.utils.clearDecorations

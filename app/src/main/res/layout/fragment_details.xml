@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.fragment.details.DetailsFragment">
+
+    <data>
+        <variable
+            name="item"
+            type="com.bs23.githubrepositories.model.Items" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/_16sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="@dimen/_16sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/_16sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/_16sdp" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profile_image_view"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:background="@color/white"
+            app:strokeWidth="@dimen/_1sdp"
+            app:strokeColor="@color/white"
+            android:src="@drawable/ic_baseline_image_24"
+            app:loadImage="@{item.owner.avatarUrl}"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.circleImageView"
+            app:layout_constraintStart_toStartOf="@id/start_guideline"
+            app:layout_constraintEnd_toEndOf="@id/end_guideline"
+            app:layout_constraintTop_toTopOf="@id/top_guideline" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/full_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:text="@{item.fullName}"
+            tools:text="Full Name"
+            style="@style/MediumBoldBlackTextStyle"
+            app:layout_constraintStart_toStartOf="@id/start_guideline"
+            app:layout_constraintEnd_toEndOf="@id/end_guideline"
+            app:layout_constraintTop_toBottomOf="@id/profile_image_view" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/updated_date_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_50sdp"
+            android:textAlignment="center"
+            tools:text="12/12/2022"
+            style="@style/SmallNormalBlackTextStyle"
+            app:layout_constraintStart_toStartOf="@id/start_guideline"
+            app:layout_constraintEnd_toEndOf="@id/end_guideline"
+            app:layout_constraintTop_toBottomOf="@id/full_name_text_view" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/description_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_50sdp"
+            android:textAlignment="center"
+            android:text="@{item.description}"
+            tools:text="Description"
+            style="@style/SmallNormalBlackTextStyle"
+            app:layout_constraintStart_toStartOf="@id/start_guideline"
+            app:layout_constraintEnd_toEndOf="@id/end_guideline"
+            app:layout_constraintTop_toBottomOf="@id/updated_date_text_view"
+            app:layout_constraintBottom_toTopOf="@id/cancel_image_view" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/cancel_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:src="@drawable/ic_baseline_cancel_24"
+            style="?android:attr/borderlessButtonStyle"
+            app:layout_constraintBottom_toBottomOf="@id/bottom_guideline"
+            app:layout_constraintStart_toStartOf="@id/start_guideline"
+            app:layout_constraintEnd_toEndOf="@id/end_guideline" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -37,6 +37,8 @@ class GithubRepoOfflineRepository @Inject constructor(
                                 Items(
                                     fullName = it.fullName,
                                     repoName = it.repoName,
+                                    description = it.description,
+                                    updatedAt = it.updatedAt,
                                     stargazersCount = it.stargazersCount,
                                     owner = Owner(
                                         avatarUrl = it.avatarUrl

@@ -18,7 +18,7 @@
         android:id="@+id/loading_state_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/matte_black"
         android:clickable="true"
         android:focusable="true"
         android:focusableInTouchMode="true"

@@ -4,6 +4,7 @@ import com.bs23.githubrepositories.api.ApiResponse
 import com.bs23.githubrepositories.api.Result
 import com.bs23.githubrepositories.di.IoDispatcher
 import com.bs23.githubrepositories.model.Repository
+import com.bs23.githubrepositories.model.RepositoryPayload
 import com.bs23.githubrepositories.network.NetworkBoundResource
 import com.bs23.githubrepositories.network.NetworkResource
 import com.bs23.githubrepositories.service.ApiService
@@ -25,7 +26,7 @@ class GithubRepoRepository @Inject constructor(
 ) {
     private val controlledRunner = ControlledRunner<Flow<Result<Repository>>>()
 
-    suspend fun fetchGithubRepoList(query: String): Flow<Result<Repository>> {
+    suspend fun fetchGithubRepoList(repositoryPayload: RepositoryPayload): Flow<Result<Repository>> {
         return controlledRunner.cancelPreviousThenRun {
             object : NetworkBoundResource<Repository, Repository>(dispatcher) {
                 override suspend fun saveCallResult(data: Repository) {
@@ -37,7 +38,11 @@ class GithubRepoRepository @Inject constructor(
                 }
 
                 override fun createCall(): Flow<ApiResponse<Repository>> {
-                    return apiService.fetchRepositoryList(query)
+                    return apiService.fetchRepositoryList(
+                        query = repositoryPayload.query,
+                        page = repositoryPayload.page,
+                        perPage = repositoryPayload.perPage
+                    )
                 }
 
                 override suspend fun loadFromDb(): Flow<Repository?> {
